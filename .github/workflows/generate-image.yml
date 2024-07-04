@@ -1,0 +1,97 @@
+name: Generate image
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Image target name'
+        required: true
+        type: string
+      log-level:
+        description: 'Log level'
+        required: true
+        default: 'info'
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+
+jobs:
+  generate:
+    name: Generate image
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      discussions: write
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.ACTION_ACCESS_TOKEN }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python-apt-dev python3-apt
+      - name: Install image generator
+        run: |
+          pip3 install git+https://github.com/EffectiveRange/raspbian-image-generator.git@latest
+      - name: Generate image
+        run: |
+          sudo -E raspbian-image-generator.py config/target-config.json ${{ github.event.inputs.target }} --log-level ${{ github.event.inputs.log-level }} --version
+          sudo echo "IMAGE_TAG=${{ github.event.inputs.target }}-$(cat images/${{ github.event.inputs.target }}.version)" >> $GITHUB_ENV
+      - name: Publish image
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.IMAGE_TAG }}
+          path: images/*
+          if-no-files-found: error
+
+
+  release:
+    name: Create Release
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      discussions: write
+
+    needs: [ generate ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.IMAGE_TAG }}
+          path: ${{ github.workspace }}/image
+      - name: Display structure of downloaded files
+        run: ls -R ${{ github.workspace }}/image
+      - name: Create tag
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+          TAG=${{ env.IMAGE_TAG }}
+          git tag -fa ${TAG} -m "Generated image ${TAG}"
+          git push origin :refs/tags/${TAG}
+
+          git push origin --tags
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Release tag
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.IMAGE_TAG }}
+          files: |
+            ${{ github.workspace }}/image/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

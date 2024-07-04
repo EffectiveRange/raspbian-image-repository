@@ -1,0 +1,120 @@
+[
+  {
+    "name": "edge-pi-zero",
+    "version": "1.0.0",
+    "reference": "2024-03-12-raspios-bullseye",
+    "sources": [
+      {
+        "name": "effective-range",
+        "source": "deb http://aptrepo.effective-range.com stable main",
+        "key_id": "C1AEE2EDBAEC37595801DDFAE15BC62117A4E0F3",
+        "key_file": "http://aptrepo.effective-range.com/dists/stable/public.key",
+        "key_server": "keyserver.ubuntu.com"
+      }
+    ],
+    "packages": [
+      {
+        "package": "wifi-manager",
+        "release": {
+          "owner": "EffectiveRange",
+          "repo": "wifi-manager",
+          "tag": "latest",
+          "matcher": "*armhf.deb"
+        }
+      },
+      {
+        "package": "picprogrammer",
+        "release": {
+          "owner": "EffectiveRange",
+          "repo": "pic18-q20-programmer",
+          "tag": "v0.3.0",
+          "matcher": "*armhf.deb"
+        }
+      },
+      {
+        "package": "filebeat",
+        "version": "8.12.2",
+        "file_url": "https://github.com/EffectiveRange/elastic-beats-armhf-deb/releases/download/v8.12.2/filebeat-8.12.2-armv7l.deb"
+      }
+    ],
+    "boot_cmdline": [
+      "modules-load=dwc2,g_ether"
+    ],
+    "boot_config": [
+      "enable_uart=1",
+      "dtoverlay=dwc2"
+    ]
+  },
+  {
+    "name": "core-pi-4",
+    "version": "0.2.0",
+    "reference": "2024-03-12-raspios-bullseye-arm64",
+    "sources": [
+      {
+        "name": "docker",
+        "source": "deb https://download.docker.com/linux/debian bullseye stable",
+        "key_id": "9DC858229FC7DD38854AE2D88D81803C0EBFCD88",
+        "key_file": "https://download.docker.com/linux/debian/gpg"
+      },
+      {
+        "name": "effective-range",
+        "source": "deb http://aptrepo.effective-range.com stable main",
+        "key_id": "C1AEE2EDBAEC37595801DDFAE15BC62117A4E0F3",
+        "key_file": "http://aptrepo.effective-range.com/dists/stable/public.key",
+        "key_server": "keyserver.ubuntu.com"
+      }
+    ],
+    "packages": [
+      {
+        "package": "docker-ce"
+      },
+      {
+        "package": "docker-ce-cli"
+      },
+      {
+        "package": "containerd.io"
+      },
+      {
+        "package": "docker-buildx-plugin"
+      },
+      {
+        "package": "docker-compose-plugin"
+      },
+      {
+        "package": "docker-ce"
+      },
+      {
+        "package": "log-server",
+        "release": {
+          "owner": "EffectiveRange",
+          "repo": "log-server",
+          "tag": "latest",
+          "matcher": "*arm64.deb"
+        }
+      },
+      {
+        "package": "apt-server",
+        "release": {
+          "owner": "EffectiveRange",
+          "repo": "apt-server",
+          "tag": "latest",
+          "matcher": "*arm64.deb"
+        }
+      },
+      {
+        "package": "ansible-server",
+        "release": {
+          "owner": "EffectiveRange",
+          "repo": "ansible-server",
+          "tag": "latest",
+          "matcher": "*arm64.deb"
+        }
+      },
+      {
+        "package": "filebeat",
+        "version": "8.12.2",
+        "file_url": "https://github.com/EffectiveRange/elastic-beats-armhf-deb/releases/download/v8.12.2/filebeat-8.12.2-arm64.deb"
+      }
+    ]
+  }
+]
