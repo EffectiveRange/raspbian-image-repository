@@ -46,7 +46,7 @@ Custom-built Raspberry Pi OS images
 
 7. Click on `Run workflow` button and wait for the workflow to complete
 
-8. Got to `Releases` page
+8. Go to the `Releases` page
 
    ![image](https://github.com/EffectiveRange/raspbian-image-repository/assets/171684354/ab810caf-7e4c-4b7a-a97c-9476379b5f56)
 
@@ -59,8 +59,7 @@ Custom-built Raspberry Pi OS images
 
 ## Configure your custom images
 
-The configuration file is located at `config/target-config.json`. The configuration file contains a list of target
-configurations.
+The configuration file is located at `config/target-config.json`. It contains a list of target configurations.
 
 ### Target configuration properties
 
@@ -75,8 +74,8 @@ Each configuration has the following properties:
     - `name`: The name of the source to use as a reference
     - `source`: The source entry
     - `key_id`: The GPG key ID
-    - `key_file`: The GPG key file URL
-    - `key_server`: The GPG key server
+    - `key_file`: The GPG key file URL (optional)
+    - `key_server`: The GPG key server (optional)
 - `packages`: A list of custom packages to be installed on the image
     - `package`: The name of the package
     - `version`: The version of the package (optional)
@@ -87,8 +86,7 @@ Each configuration has the following properties:
         - `tag`: The tag of the release
         - `matcher`: The matcher to filter the package file
         - `token`: The GitHub token to access a private repository, supports environment variable reference when `$` is
-          used
-          like `$GITHUB_TOKEN` to avoid putting the access token directly in the configuration file (optional)
+          used like `$GITHUB_TOKEN` to avoid putting the access token directly in the configuration file (optional)
 - `boot_cmdline`: A list of boot command line parameters to be added to the `cmdline.txt` file (optional)
 - `boot_config`: A list of boot configuration parameters to be added to the `config.txt` file (optional)
 
@@ -109,7 +107,7 @@ A minimalist configuration to add an extra package to your image:
 }
 ```
 
-A more complex configuration to add custom packages, APT sources, and boot configurations:
+A more complex configuration to add custom packages, APT sources, and boot configuration:
 
 ```json
 {
