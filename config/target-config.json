@@ -1,7 +1,7 @@
 [
   {
     "name": "edge-pi-zero",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "reference": "2024-03-12-raspios-bullseye",
     "sources": [
       {
@@ -35,6 +35,10 @@
         "package": "filebeat",
         "version": "8.12.2",
         "file_url": "https://github.com/EffectiveRange/elastic-beats-armhf-deb/releases/download/v8.12.2/filebeat-8.12.2-armv7l.deb"
+      },
+      {
+        "package": "mrhat-rx8130",
+        "file_url": "https://github.com/EffectiveRange/drv-rx8130ce/releases/download/v0.1.0/mrhat-rx8130_0.1.0-1_all.deb"
       }
     ],
     "boot_cmdline": [
