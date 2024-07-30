@@ -1,8 +1,8 @@
 [
   {
     "name": "edge-pi-zero",
-    "version": "1.1.0",
-    "reference": "2024-03-12-raspios-bullseye",
+    "version": "1.2.0",
+    "reference": "2024-07-05-raspios-bullseye",
     "sources": [
       {
         "name": "effective-range",
@@ -15,30 +15,28 @@
     "packages": [
       {
         "package": "wifi-manager",
-        "release": {
-          "owner": "EffectiveRange",
-          "repo": "wifi-manager",
-          "tag": "latest",
-          "matcher": "*armhf.deb"
-        }
+        "file_url": "https://github.com/EffectiveRange/wifi-manager/releases/download/v1.0.5/wifi-manager_1.0.5_armhf.deb"
       },
       {
         "package": "picprogrammer",
-        "release": {
-          "owner": "EffectiveRange",
-          "repo": "pic18-q20-programmer",
-          "tag": "v0.3.0",
-          "matcher": "*armhf.deb"
-        }
+        "file_url": "https://github.com/EffectiveRange/pic18-q20-programmer/releases/download/v0.3.0/picprogrammer_0.3.0-1_armhf.deb"
+      },
+      {
+        "package": "mrhat-rx8130",
+        "file_url": "https://github.com/EffectiveRange/drv-rx8130ce/releases/download/v0.2.2/mrhat-rx8130_0.2.2-1_armhf.deb"
+      },
+      {
+        "package": "mrhat-bq25622",
+        "file_url": "https://github.com/EffectiveRange/drv-bq25622/releases/download/v0.2.0/mrhat-bq25622_0.2.0-1_armhf.deb"
+      },
+      {
+        "package": "mrhat-battery-simple",
+        "file_url": "https://github.com/EffectiveRange/drv-battery/releases/download/v0.1.0/mrhat-battery-simple_0.1.0-1_all.deb"
       },
       {
         "package": "filebeat",
         "version": "8.12.2",
         "file_url": "https://github.com/EffectiveRange/elastic-beats-armhf-deb/releases/download/v8.12.2/filebeat-8.12.2-armv7l.deb"
-      },
-      {
-        "package": "mrhat-rx8130",
-        "file_url": "https://github.com/EffectiveRange/drv-rx8130ce/releases/download/v0.1.0/mrhat-rx8130_0.1.0-1_all.deb"
       }
     ],
     "boot_cmdline": [
