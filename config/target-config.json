@@ -1,7 +1,7 @@
 [
   {
     "name": "edge-pi-zero",
-    "version": "1.3.0",
+    "version": "1.3.1",
     "reference": "2024-07-05-raspios-bullseye",
     "sources": [
       {
@@ -49,6 +49,9 @@
     "boot_config": [
       "enable_uart=1",
       "dtoverlay=dwc2"
+    ],
+    "post_install": [
+      "raspi-config nonint do_wifi_country HU"
     ]
   },
   {
