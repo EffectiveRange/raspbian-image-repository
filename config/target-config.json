@@ -55,16 +55,10 @@
     ]
   },
   {
-    "name": "core-pi-4",
-    "version": "0.2.0",
-    "reference": "2024-03-12-raspios-bullseye-arm64",
+    "name": "edge-pi-zero-aitia",
+    "version": "1.1.0",
+    "reference": "2024-07-05-raspios-bullseye",
     "sources": [
-      {
-        "name": "docker",
-        "source": "deb https://download.docker.com/linux/debian bullseye stable",
-        "key_id": "9DC858229FC7DD38854AE2D88D81803C0EBFCD88",
-        "key_file": "https://download.docker.com/linux/debian/gpg"
-      },
       {
         "name": "effective-range",
         "source": "deb http://aptrepo.effective-range.com stable main",
@@ -75,55 +69,46 @@
     ],
     "packages": [
       {
-        "package": "docker-ce"
+        "package": "upower"
       },
       {
-        "package": "docker-ce-cli"
+        "package": "libcamera-dev"
       },
       {
-        "package": "containerd.io"
+        "package": "libcamera-apps"
       },
       {
-        "package": "docker-buildx-plugin"
+        "package": "aitia",
+        "file_url": "https://github.com/leventenyiri/AitiA/releases/download/v0.3.3/python3-aitia_0.3.3_all.deb"
       },
       {
-        "package": "docker-compose-plugin"
+        "package": "wifi-manager",
+        "file_url": "https://github.com/EffectiveRange/wifi-manager/releases/download/v1.0.5/wifi-manager_1.0.5_armhf.deb"
       },
       {
-        "package": "docker-ce"
+        "package": "picprogrammer",
+        "file_url": "https://github.com/EffectiveRange/pic18-q20-programmer/releases/download/v0.3.0/picprogrammer_0.3.0-1_armhf.deb"
       },
       {
-        "package": "log-server",
-        "release": {
-          "owner": "EffectiveRange",
-          "repo": "log-server",
-          "tag": "latest",
-          "matcher": "*arm64.deb"
-        }
+        "package": "mrhat-rx8130",
+        "file_url": "https://github.com/EffectiveRange/drv-rx8130ce/releases/download/v0.2.2/mrhat-rx8130_0.2.2-1_armhf.deb"
       },
       {
-        "package": "apt-server",
-        "release": {
-          "owner": "EffectiveRange",
-          "repo": "apt-server",
-          "tag": "latest",
-          "matcher": "*arm64.deb"
-        }
+        "package": "mrhat-battery-simple",
+        "file_url": "https://raw.githubusercontent.com/bnyitrai03/rpizero_storage/main/mrhat-battery-simple.deb"
       },
       {
-        "package": "ansible-server",
-        "release": {
-          "owner": "EffectiveRange",
-          "repo": "ansible-server",
-          "tag": "latest",
-          "matcher": "*arm64.deb"
-        }
-      },
-      {
-        "package": "filebeat",
-        "version": "8.12.2",
-        "file_url": "https://github.com/EffectiveRange/elastic-beats-armhf-deb/releases/download/v8.12.2/filebeat-8.12.2-arm64.deb"
+        "package": "mrhat-bq25622",
+        "file_url": "https://github.com/EffectiveRange/drv-bq25622/releases/download/v0.5.1/mrhat-bq25622_0.5.1-1_armhf.deb"
       }
+    ],
+    "boot_config": [
+      "enable_uart=1",
+      "dtoverlay=imx519",
+      "dtoverlay=mrhat-rx8130:rtc_irq_pin=5",
+      "dtoverlay=mrhat-battery-simple",
+      "dtoverlay=mrhat-bq25622:ce_override=true",
+      "dtoverlay=imx519"
     ]
   }
 ]
