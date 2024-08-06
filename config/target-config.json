@@ -31,7 +31,7 @@
       },
       {
         "package": "mrhat-bq25622",
-        "file_url": "https://github.com/EffectiveRange/drv-bq25622/releases/download/v0.5.0/mrhat-bq25622_0.5.0-1_armhf.deb"
+        "file_url": "https://github.com/EffectiveRange/drv-bq25622/releases/download/v0.5.0/mrhat-bq25622_0.6.0-1_armhf.deb"
       },
       {
         "package": "mrhat-battery-simple",
@@ -43,12 +43,13 @@
         "file_url": "https://github.com/EffectiveRange/elastic-beats-armhf-deb/releases/download/v8.12.2/filebeat-8.12.2-armv7l.deb"
       }
     ],
-    "boot_cmdline": [
-      "modules-load=dwc2,g_ether"
-    ],
     "boot_config": [
       "enable_uart=1",
-      "dtoverlay=dwc2"
+      "dtoverlay=mrhat-battery-simple",
+      "dtoverlay=mrhat-bq25622:ce_override=true;battery_diag=true",
+      "dtoverlay=mrhat-platform",
+      "dtoverlay=mrhat-rx8130",
+      "dtoverlay=googlevoicehat-soundcard"
     ],
     "post_install": [
       "raspi-config nonint do_wifi_country HU"
