@@ -1,7 +1,7 @@
 [
   {
     "name": "edge-pi-zero",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "reference": "2024-07-05-raspios-bullseye",
     "sources": [
       {
@@ -15,7 +15,7 @@
     "packages": [
       {
         "package": "wifi-manager",
-        "file_url": "https://github.com/EffectiveRange/wifi-manager/releases/download/v1.0.5/wifi-manager_1.0.5_armhf.deb"
+        "file_url": "https://github.com/EffectiveRange/wifi-manager/releases/download/v1.0.6/wifi-manager_1.0.6_armhf.deb"
       },
       {
         "package": "picprogrammer",
