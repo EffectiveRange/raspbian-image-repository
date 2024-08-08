@@ -1,7 +1,7 @@
 [
   {
     "name": "edge-pi-zero",
-    "version": "1.4.1",
+    "version": "1.5.0",
     "reference": "2024-07-05-raspios-bullseye",
     "sources": [
       {
@@ -24,6 +24,10 @@
       {
         "package": "mrhat-platform",
         "file_url": "https://github.com/EffectiveRange/drv-mrhat/releases/download/v0.1.0/mrhat-platform_0.1.0-1_armhf.deb"
+      },
+      {
+        "package": "mrhat-rtcwake",
+        "file_url": "https://github.com/EffectiveRange/mrhat-rtcwake/releases/download/v0.1.4/python3-mrhat-rtcwake_0.1.4_all.deb"
       },
       {
         "package": "mrhat-rx8130",
