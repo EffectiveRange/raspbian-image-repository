@@ -1,7 +1,7 @@
 [
   {
     "name": "edge-pi-zero",
-    "version": "1.5.0",
+    "version": "1.5.1",
     "reference": "2024-07-05-raspios-bullseye",
     "sources": [
       {
@@ -31,7 +31,7 @@
       },
       {
         "package": "mrhat-rx8130",
-        "file_url": "https://github.com/EffectiveRange/drv-rx8130ce/releases/download/v0.2.2/mrhat-rx8130_0.2.2-1_armhf.deb"
+        "file_url": "https://github.com/EffectiveRange/drv-rx8130ce/releases/download/v0.2.2/mrhat-rx8130_0.3.0-1_armhf.deb"
       },
       {
         "package": "mrhat-bq25622",
@@ -56,7 +56,8 @@
       "dtoverlay=googlevoicehat-soundcard"
     ],
     "post_install": [
-      "raspi-config nonint do_wifi_country HU"
+      "raspi-config nonint do_wifi_country HU",
+      "raspi-config nonint do_i2c 0"
     ]
   },
   {
