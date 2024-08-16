@@ -1,7 +1,7 @@
 [
   {
     "name": "edge-pi-zero",
-    "version": "1.5.1",
+    "version": "1.5.2",
     "reference": "2024-07-05-raspios-bullseye",
     "sources": [
       {
@@ -26,16 +26,16 @@
         "file_url": "https://github.com/EffectiveRange/drv-mrhat/releases/download/v0.1.0/mrhat-platform_0.1.0-1_armhf.deb"
       },
       {
-        "package": "mrhat-rtcwake",
+        "package": "python3-mrhat-rtcwake",
         "file_url": "https://github.com/EffectiveRange/mrhat-rtcwake/releases/download/v0.1.4/python3-mrhat-rtcwake_0.1.4_all.deb"
       },
       {
         "package": "mrhat-rx8130",
-        "file_url": "https://github.com/EffectiveRange/drv-rx8130ce/releases/download/v0.2.2/mrhat-rx8130_0.3.0-1_armhf.deb"
+        "file_url": "https://github.com/EffectiveRange/drv-rx8130ce/releases/download/v0.2.2/mrhat-rx8130_0.3.1-1_armhf.deb"
       },
       {
         "package": "mrhat-bq25622",
-        "file_url": "https://github.com/EffectiveRange/drv-bq25622/releases/download/v0.5.0/mrhat-bq25622_0.6.0-1_armhf.deb"
+        "file_url": "https://github.com/EffectiveRange/drv-bq25622/releases/download/v0.5.0/mrhat-bq25622_0.6.1-1_armhf.deb"
       },
       {
         "package": "mrhat-battery-simple",
