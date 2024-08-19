@@ -1,7 +1,7 @@
 [
   {
     "name": "edge-pi-zero",
-    "version": "1.5.2",
+    "version": "1.5.3",
     "reference": "2024-07-05-raspios-bullseye",
     "sources": [
       {
@@ -54,6 +54,9 @@
       "dtoverlay=mrhat-platform",
       "dtoverlay=mrhat-rx8130",
       "dtoverlay=googlevoicehat-soundcard"
+    ],
+    "first_boot": [
+      "depmod"
     ],
     "post_install": [
       "raspi-config nonint do_wifi_country HU",
