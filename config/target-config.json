@@ -1,7 +1,7 @@
 [
   {
     "name": "edge-pi-zero",
-    "version": "1.5.3",
+    "version": "1.6.0",
     "reference": "2024-07-05-raspios-bullseye",
     "sources": [
       {
@@ -42,6 +42,10 @@
         "file_url": "https://github.com/EffectiveRange/drv-battery/releases/download/v0.1.0/mrhat-battery-simple_0.1.0-1_all.deb"
       },
       {
+        "package": "python3-mrhat-daemon",
+        "file_url": "https://github.com/EffectiveRange/mrhat-daemon/releases/download/v1.0.0/python3-mrhat-daemon_1.0.0_all.deb"
+      },
+      {
         "package": "filebeat",
         "version": "8.12.2",
         "file_url": "https://github.com/EffectiveRange/elastic-beats-armhf-deb/releases/download/v8.12.2/filebeat-8.12.2-armv7l.deb"
@@ -50,13 +54,14 @@
     "boot_config": [
       "enable_uart=1",
       "dtoverlay=mrhat-battery-simple",
-      "dtoverlay=mrhat-bq25622:ce_override=true;battery_diag=true",
+      "dtoverlay=mrhat-bq25622",
       "dtoverlay=mrhat-platform",
       "dtoverlay=mrhat-rx8130",
       "dtoverlay=googlevoicehat-soundcard"
     ],
     "first_boot": [
-      "depmod"
+      "depmod",
+      "reboot"
     ],
     "post_install": [
       "raspi-config nonint do_wifi_country HU",
