@@ -1,0 +1,22 @@
+name: Validate Configuration
+
+on:
+  pull_request:
+    paths:
+      - 'config/target-config.json'
+      - 'schema/target-config.schema.json'
+
+jobs:
+  validate-json:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: pip install check-jsonschema
+
+      - name: Validate JSON
+        run: |
+          check-jsonschema --schemafile schema/target-config.schema.json config/target-config.json

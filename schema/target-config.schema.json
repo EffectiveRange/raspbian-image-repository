@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "version": {
+        "type": "string"
+      },
+      "reference": {
+        "type": "string"
+      },
+      "sources": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            },
+            "key_id": {
+              "type": "string"
+            },
+            "key_file": {
+              "type": "string"
+            },
+            "key_server": {
+              "type": "string"
+            }
+          },
+          "required": ["name", "source", "key_id", "key_file"]
+        }
+      },
+      "packages": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "package": {
+              "type": "string"
+            },
+            "release": {
+              "type": "object",
+              "properties": {
+                "owner": {
+                  "type": "string"
+                },
+                "repo": {
+                  "type": "string"
+                },
+                "tag": {
+                  "type": "string"
+                },
+                "matcher": {
+                  "type": "string"
+                }
+              },
+              "required": ["owner", "repo", "matcher"]
+            },
+            "version": {
+              "type": "string"
+            },
+            "file_url": {
+              "type": "string"
+            }
+          },
+          "required": ["package"]
+        }
+      },
+      "boot_cmdline": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "boot_config": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "first_boot": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "pre_install": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "post_install": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": ["name", "version", "reference", "packages"]
+  }
+}
