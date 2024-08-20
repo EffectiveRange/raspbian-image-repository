@@ -1,7 +1,7 @@
 [
   {
     "name": "edge-pi-zero",
-    "version": "1.6.0",
+    "version": "1.6.1",
     "reference": "2024-07-05-raspios-bullseye",
     "sources": [
       {
@@ -14,36 +14,8 @@
     ],
     "packages": [
       {
-        "package": "wifi-manager",
-        "file_url": "https://github.com/EffectiveRange/wifi-manager/releases/download/v1.0.6/wifi-manager_1.0.6_armhf.deb"
-      },
-      {
-        "package": "picprogrammer",
-        "file_url": "https://github.com/EffectiveRange/pic18-q20-programmer/releases/download/v0.3.0/picprogrammer_0.3.0-1_armhf.deb"
-      },
-      {
-        "package": "mrhat-platform",
-        "file_url": "https://github.com/EffectiveRange/drv-mrhat/releases/download/v0.1.0/mrhat-platform_0.1.0-1_armhf.deb"
-      },
-      {
-        "package": "python3-mrhat-rtcwake",
-        "file_url": "https://github.com/EffectiveRange/mrhat-rtcwake/releases/download/v0.1.4/python3-mrhat-rtcwake_0.1.4_all.deb"
-      },
-      {
-        "package": "mrhat-rx8130",
-        "file_url": "https://github.com/EffectiveRange/drv-rx8130ce/releases/download/v0.2.2/mrhat-rx8130_0.3.1-1_armhf.deb"
-      },
-      {
-        "package": "mrhat-bq25622",
-        "file_url": "https://github.com/EffectiveRange/drv-bq25622/releases/download/v0.5.0/mrhat-bq25622_0.6.1-1_armhf.deb"
-      },
-      {
-        "package": "mrhat-battery-simple",
-        "file_url": "https://github.com/EffectiveRange/drv-battery/releases/download/v0.1.0/mrhat-battery-simple_0.1.0-1_all.deb"
-      },
-      {
-        "package": "python3-mrhat-daemon",
-        "file_url": "https://github.com/EffectiveRange/mrhat-daemon/releases/download/v1.0.0/python3-mrhat-daemon_1.0.0_all.deb"
+        "package": "mrhat-pkg",
+        "file_url": "https://github.com/EffectiveRange/mrhat-pkg/releases/download/v1.0.0/mrhat-pkg_1.0.0-1_all.deb"
       },
       {
         "package": "filebeat",
