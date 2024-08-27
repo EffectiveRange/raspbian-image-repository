@@ -15,8 +15,8 @@
     "packages": [
       {
         "package": "mrhat-pkg",
-        "version": "1.1.0",
-        "file_url": "https://github.com/EffectiveRange/mrhat-pkg/releases/download/v1.1.0/mrhat-pkg_1.1.0-1_all.deb"
+        "version": "1.1.1",
+        "file_url": "https://github.com/EffectiveRange/mrhat-pkg/releases/download/v1.1.1/mrhat-pkg_1.1.1-1_all.deb"
       },
       {
         "package": "filebeat",

@@ -1,3 +1,7 @@
+
+[![Validate Configuration](https://github.com/EffectiveRange/raspbian-image-repository/actions/workflows/validate-config.yml/badge.svg)](https://github.com/EffectiveRange/raspbian-image-repository/actions/workflows/validate-config.yml)
+[![Generate image](https://github.com/EffectiveRange/raspbian-image-repository/actions/workflows/generate-image.yml/badge.svg)](https://github.com/EffectiveRange/raspbian-image-repository/actions/workflows/generate-image.yml)
+
 # raspbian-image-repository
 
 Custom-built Raspberry Pi OS images
