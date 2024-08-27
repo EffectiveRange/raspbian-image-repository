@@ -1,7 +1,7 @@
 [
   {
     "name": "edge-pi-zero",
-    "version": "1.7.0",
+    "version": "1.8.0",
     "reference": "2024-07-05-raspios-bullseye",
     "sources": [
       {
@@ -13,6 +13,15 @@
       }
     ],
     "packages": [
+      {
+        "package": "i2c-tools"
+      },
+      {
+        "package": "upower"
+      },
+      {
+        "package": "wavemon"
+      },
       {
         "package": "mrhat-pkg",
         "version": "1.1.1",
