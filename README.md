@@ -20,8 +20,10 @@ Custom-built Raspberry Pi OS images
 - [x] Custom Raspberry Pi OS images
 - [x] Custom APT sources (with GPG key and key server support)
 - [x] Custom pre-installed packages (from APT repositories, GitHub releases, and direct URLs)
+- [x] Run custom commands before and/or after installing the packages
 - [x] Custom boot command line options
 - [x] Custom boot configuration options
+- [x] Run custom commands on first boot of the image
 - [x] Custom target build stage (default is `2` which results in the `lite` image)
 
 ## Generate your custom images
@@ -93,6 +95,9 @@ Each configuration has the following properties:
           used like `$GITHUB_TOKEN` to avoid putting the access token directly in the configuration file (optional)
 - `boot_cmdline`: A list of boot command line parameters to be added to the `cmdline.txt` file (optional)
 - `boot_config`: A list of boot configuration parameters to be added to the `config.txt` file (optional)
+- `pre_install`: A list of commands to be run before installing the packages (optional)
+- `post_install`: A list of commands to be run after installing the packages (optional)
+- `first_boot`: A list of commands to be run on the first boot of the image (optional)
 
 ### Example configuration
 
@@ -158,6 +163,14 @@ A more complex configuration to add custom packages, APT sources, and boot confi
   "boot_config": [
     "enable_uart=1",
     "dtoverlay=dwc2"
+  ],
+  "first_boot": [
+    "depmod",
+    "reboot"
+  ],
+  "post_install": [
+    "raspi-config nonint do_wifi_country HU",
+    "raspi-config nonint do_i2c 0"
   ]
 }
 ```
