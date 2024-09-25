@@ -1,4 +1,4 @@
-name: Validate Configuration
+name: Validate configuration
 
 on:
   pull_request:
