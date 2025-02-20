@@ -1,7 +1,7 @@
 [
   {
     "name": "edge-pi-zero",
-    "version": "1.8.0",
+    "version": "1.8.1",
     "reference": "2024-07-05-raspios-bullseye",
     "sources": [
       {
@@ -21,6 +21,9 @@
       },
       {
         "package": "wavemon"
+      },
+      {
+        "package": "ntp"
       },
       {
         "package": "mrhat-pkg",
