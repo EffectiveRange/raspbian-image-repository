@@ -1,14 +1,60 @@
 [
   {
+    "name": "scarecrow-base",
+    "version": "1.0.0",
+    "reference": "2024-11-19-raspios-bookworm-armhf",
+    "sources": [
+      {
+        "name": "effective-range",
+        "source": "deb http://aptrepo.effective-range.com bookworm main",
+        "key_id": "C1AEE2EDBAEC37595801DDFAE15BC62117A4E0F3",
+        "key_file": "http://aptrepo.effective-range.com/dists/bookworm/public.key",
+        "key_server": "keyserver.ubuntu.com"
+      }
+    ],
+    "packages": [
+      {
+        "package": "mrhat-pkg",
+        "version": "1.2.0",
+        "file_url": "https://github.com/EffectiveRange/mrhat-pkg/releases/download/v1.2.0/mrhat-pkg_1.2.0-1_all.deb"
+      },
+      {
+        "package": "filebeat",
+        "version": "8.12.2",
+        "file_url": "https://github.com/EffectiveRange/elastic-beats-armhf-deb/releases/download/v8.12.2/filebeat-8.12.2-armv7l.deb"
+      }
+    ],
+    "boot_config": [
+      "enable_uart=1",
+      "dtoverlay=mrhat-battery-simple",
+      "dtoverlay=mrhat-bq25622",
+      "dtoverlay=mrhat-platform",
+      "dtoverlay=mrhat-rx8130",
+      "dtoverlay=googlevoicehat-soundcard",
+      "dtoverlay=disable-bt",
+      "gpio=4=op,dl",
+      "gpio=5,16=ip"
+    ],
+    "first_boot": [
+      "depmod",
+      "reboot"
+    ],
+    "post_install": [
+      "raspi-config nonint do_wifi_country HU",
+      "raspi-config nonint do_i2c 0",
+      "echo \"options brcmfmac roamoff=1\" >> /etc/modprobe.d/brcmfmac.conf"
+    ]
+  },
+  {
     "name": "edge-pi-zero",
-    "version": "1.8.1",
+    "version": "1.8.2",
     "reference": "2024-07-05-raspios-bullseye",
     "sources": [
       {
         "name": "effective-range",
-        "source": "deb http://aptrepo.effective-range.com stable main",
+        "source": "deb http://aptrepo.effective-range.com bullseye main",
         "key_id": "C1AEE2EDBAEC37595801DDFAE15BC62117A4E0F3",
-        "key_file": "http://aptrepo.effective-range.com/dists/stable/public.key",
+        "key_file": "http://aptrepo.effective-range.com/dists/bullseye/public.key",
         "key_server": "keyserver.ubuntu.com"
       }
     ],
@@ -66,9 +112,9 @@
       },
       {
         "name": "effective-range",
-        "source": "deb http://aptrepo.effective-range.com stable main",
+        "source": "deb http://aptrepo.effective-range.com bullseye main",
         "key_id": "C1AEE2EDBAEC37595801DDFAE15BC62117A4E0F3",
-        "key_file": "http://aptrepo.effective-range.com/dists/stable/public.key",
+        "key_file": "http://aptrepo.effective-range.com/dists/bullseye/public.key",
         "key_server": "keyserver.ubuntu.com"
       }
     ],
