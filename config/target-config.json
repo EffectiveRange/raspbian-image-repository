@@ -1,7 +1,7 @@
 [
   {
     "name": "scarecrow-base",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "reference": "2024-11-19-raspios-bookworm-armhf",
     "sources": [
       {
@@ -36,13 +36,17 @@
       "gpio=5,16=ip"
     ],
     "first_boot": [
+      "chown -R admin:admin /home/admin",
       "depmod",
       "reboot"
     ],
     "post_install": [
       "raspi-config nonint do_wifi_country HU",
       "raspi-config nonint do_i2c 0",
-      "echo \"options brcmfmac roamoff=1\" >> /etc/modprobe.d/brcmfmac.conf"
+      "echo \"options brcmfmac roamoff=1\" >> /etc/modprobe.d/brcmfmac.conf",
+      "mkdir -p /home/admin/.ssh",
+      "echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICDjVgR+K957kS+WyppjP1PbQW1FBxvM2XgzwtglvHeb fecjanky@gs-p14s\" >> /home/admin/.ssh/authorized_keys",
+      "chmod 600 /home/admin/.ssh/authorized_keys"
     ]
   },
   {
