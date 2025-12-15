@@ -56,7 +56,7 @@ jobs:
           VERSION=$(ls -1 image/${{ github.event.inputs.target }})
           echo "IMAGE_TAG=${{ github.event.inputs.target }}-$VERSION" >> $GITHUB_OUTPUT
       - name: Publish image
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: ${{ github.event.inputs.target }}
           path: image/**/*
